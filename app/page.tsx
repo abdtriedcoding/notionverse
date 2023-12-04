@@ -2,9 +2,10 @@ import { getAllPosts } from "@/functions/getAllPosts";
 import Feed from "./components/Feed";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import { PostItem } from "@/types";
 
 const HomePage = async () => {
-  const publishedItems = await getAllPosts();
+  const publishedItems: PostItem[] = await getAllPosts();
   return (
     <>
       <Header />
@@ -12,7 +13,7 @@ const HomePage = async () => {
       <div>
         <h2>Feed</h2>
         <ul>
-          {publishedItems?.map((item: any) => (
+          {publishedItems?.map((item: PostItem) => (
             <li key={item.id}>
               <h3>{item.title}</h3>
               <p>Date: {item.date}</p>
