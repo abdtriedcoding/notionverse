@@ -3,12 +3,15 @@
 import Link from "next/link";
 import Image from "next/image";
 import { links } from "@/constants";
+import useScrollToTop from "../hook/useScrollToTop";
 
 const Header = () => {
+  const { showTopButton, handleClickTop } = useScrollToTop();
   return (
     <>
-      <div className="sticky top-0 z-10 bg-white border-b-2  py-5">
+      <div className="sticky top-0 z-10 bg-white border-b-2 py-5">
         <div className="max-w-5xl flex flex-row justify-between items-center m-auto px-4">
+          {/* Icon */}
           <div className="flex items-center space-x-3">
             <Link href="/">
               <Image
@@ -20,6 +23,7 @@ const Header = () => {
             </Link>
             <p className="hidden sm:block">Notionverse</p>
           </div>
+          {/* Navlinks */}
           <div className="flex-shrink-0">
             <ul className="flex flex-row">
               {links.map((link) => (
@@ -31,6 +35,19 @@ const Header = () => {
           </div>
         </div>
       </div>
+
+      {/* Observer element for IntersectionObserver */}
+      <div className="observer-element h-4 md:h-12"></div>
+
+      {/* Back to Top Button */}
+      {showTopButton && (
+        <button
+          className="fixed bottom-4 right-4 bg-blue-500 text-white px-4 py-2 rounded-full shadow-md"
+          onClick={handleClickTop}
+        >
+          Top
+        </button>
+      )}
     </>
   );
 };
