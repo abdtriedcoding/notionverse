@@ -1,9 +1,10 @@
 "use client";
-
+7
 import Link from "next/link";
 import Image from "next/image";
 import { links } from "@/constants";
 import useScrollToTop from "../hook/useScrollToTop";
+import { MoveUp } from "lucide-react";
 
 const Header = () => {
   const { showTopButton, handleClickTop } = useScrollToTop();
@@ -42,10 +43,10 @@ const Header = () => {
       {/* Back to Top Button */}
       {showTopButton && (
         <button
-          className="fixed bottom-4 right-4 bg-blue-500 text-white px-4 py-2 rounded-full shadow-md"
+          className="fixed bottom-4 right-4 bg-gray-800 text-white px-2 py-2 rounded-full shadow-md"
           onClick={handleClickTop}
         >
-          Top
+          <MoveUp />
         </button>
       )}
     </>
