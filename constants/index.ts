@@ -24,3 +24,5 @@ export const footerNavigation: FooterNavItem[] = [
     icon: Linkedin,
   },
 ];
+
+export const postsPerPage = 5;

@@ -1,3 +1,5 @@
+import { type } from "os";
+
 export interface LinkItem {
   id: number;
   name: string;
@@ -20,3 +22,8 @@ export type PostItem = {
   tags: string[];
   summary: string[];
 };
+
+export type PaginationProps = {
+  currentPage: number;
+  totalPages: number;
+}

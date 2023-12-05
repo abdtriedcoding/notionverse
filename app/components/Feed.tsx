@@ -2,13 +2,13 @@ import { PostItem } from "@/types";
 import BlogCard from "./BlogCard";
 
 export default function Feed({
-  publishedPosts,
+  postsToShow,
 }: {
-  publishedPosts: PostItem[];
+  postsToShow: PostItem[];
 }) {
   return (
     <div className="max-w-2xl m-auto px-4 min-h-full">
-      {publishedPosts.map((post:PostItem) => (
+      {postsToShow.map((post:PostItem) => (
         <BlogCard key={post.id} post={post} />
       ))}
     </div>
