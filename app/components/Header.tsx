@@ -1,5 +1,5 @@
 "use client";
-7
+
 import Link from "next/link";
 import Image from "next/image";
 import { links } from "@/constants";
