@@ -26,4 +26,8 @@ export type PostItem = {
 export type PaginationProps = {
   currentPage: number;
   totalPages: number;
-}
+};
+
+export type TagFrequencyMap = {
+  [tag: string]: number;
+};
