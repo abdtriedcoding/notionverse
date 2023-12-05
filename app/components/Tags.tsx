@@ -1,11 +1,8 @@
 import { Button } from "@/components/ui/button";
-import { calculateTagFrequency } from "@/functions/getAllTags";
-import { PostItem } from "@/types";
+import { TagFrequencyMap } from "@/types";
 import Link from "next/link";
 
-const Tags = async ({ publishedPosts }: { publishedPosts: PostItem[] }) => {
-  const tagFrequencyMap = await calculateTagFrequency({ publishedPosts });
-
+const Tags = ({ tagFrequencyMap }: { tagFrequencyMap: TagFrequencyMap }) => {
   return (
     <div className="max-w-2xl space-x-3 overflow-x-auto whitespace-nowrap">
       {Object.entries(tagFrequencyMap).map(([tag, value], index) => (
