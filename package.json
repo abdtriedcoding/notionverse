@@ -15,6 +15,7 @@
     "clsx": "^2.0.0",
     "lucide-react": "^0.294.0",
     "next": "14.0.3",
+    "nextjs-toploader": "^1.4.2",
     "react": "^18",
     "react-dom": "^18",
     "react-notion": "^0.10.0",
