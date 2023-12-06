@@ -43,7 +43,7 @@ const Header = () => {
       {/* Back to Top Button */}
       {showTopButton && (
         <button
-          className="fixed bottom-4 right-4 bg-gray-800 text-white px-2 py-2 rounded-full shadow-md"
+          className="fixed bottom-16 right-4 bg-gray-800 text-white px-2 py-2 rounded-full shadow-md"
           onClick={handleClickTop}
         >
           <MoveUp />

@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="border-t-2">
+    <footer className="">
       <div className="max-w-5xl m-auto py-6 px-4 sm:px-6 md:flex md:items-center md:justify-between">
         <div className="flex justify-center space-x-6 md:order-2">
           {footerNavigation.map((item) => (
