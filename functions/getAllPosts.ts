@@ -6,6 +6,12 @@ export const getAllPosts = async (): Promise<PostItem[]> => {
   const databaseId = process.env.NOTION_DATABASE_ID!;
   const response = await notion.databases.query({
     database_id: databaseId,
+    sorts: [
+      {
+        property: 'date',
+        direction: 'ascending',
+      },
+    ],
   });
 
   const publishedItems: PostItem[] = response.results.map((e) =>
