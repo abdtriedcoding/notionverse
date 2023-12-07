@@ -9,28 +9,7 @@ const HomePage = async () => {
   return (
     <>
       <Header />
-      <Feed />
-      <div>
-        <h2>Feed</h2>
-        <ul>
-          {publishedItems?.map((item: PostItem) => (
-            <li key={item.id}>
-              <h3>{item.title}</h3>
-              <p>Date: {item.date}</p>
-              <p>Type: {item.type}</p>
-              <p>Slug: {item.slug}</p>
-              <p>Status: {item.status}</p>
-              <p>Tags: {item.tags.join(", ")}</p>
-              <div>
-                <strong>Summary:</strong>
-                {item.summary.map((text: string, index: number) => (
-                  <span key={index}>{text}</span>
-                ))}
-              </div>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <Feed publishedItems={publishedItems} />
       <Footer />
     </>
   );
