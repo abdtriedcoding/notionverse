@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { PostItem } from "@/types";
+import { FormatDate } from "@/functions/DateFormatter";
 
 const BlogCard = ({ post }: { post: PostItem }) => {
   const { id, date, title, tags, summary } = post;
@@ -12,7 +13,7 @@ const BlogCard = ({ post }: { post: PostItem }) => {
       >
         <div className="rounded-[10px] bg-white p-4 sm:p-6">
           <time dateTime="2022-10-10" className="block text-xs text-gray-500">
-            {date}
+            {FormatDate(date)}
           </time>
 
           <h3 className="mt-0.5 text-lg font-medium text-gray-900">{title}</h3>
