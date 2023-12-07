@@ -3,10 +3,10 @@ import { PostItem } from "@/types";
 import { FormatDate } from "@/functions/DateFormatter";
 
 const BlogCard = ({ post }: { post: PostItem }) => {
-  const { id, date, title, tags, summary } = post;
+  const { id, date, title, tags, summary, slug } = post;
 
   return (
-    <Link href="/">
+    <Link href={`/${slug}?id=${id}`}>
       <article
         key={id}
         className="hover:animate-background rounded-xl bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 p-0.5 shadow-xl transition hover:bg-[length:400%_400%] hover:[animation-duration:_4s] mb-4"
