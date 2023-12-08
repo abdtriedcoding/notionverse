@@ -3,6 +3,7 @@ import Feed from "./components/Feed";
 import { PostItem } from "@/types";
 import Pagination from "./components/Pagination";
 import { postsPerPage } from "@/constants";
+import HeroSection from "./components/HeroSection";
 
 const HomePage = async ({
   searchParams,
@@ -16,14 +17,15 @@ const HomePage = async ({
   const endIndex = startIndex + postsPerPage;
   const postsToShow = publishedPosts.slice(startIndex, endIndex);
   const totalPosts = publishedPosts.length;
-  
+
   return (
     <>
-      <Feed postsToShow={postsToShow} />
+      <HeroSection />
+      {/* <Feed postsToShow={postsToShow} />
       <Pagination
         currentPage={page}
         totalPages={Math.ceil(totalPosts / postsPerPage)}
-      />
+      /> */}
     </>
   );
 };
