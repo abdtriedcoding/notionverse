@@ -4,11 +4,7 @@ import Link from "next/link";
 
 const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages }) => {
   return (
-    <div
-      className={`max-w-2xl m-auto px-4 items-center flex flex-row ${
-        currentPage > 1 ? "justify-between" : "justify-end"
-      }`}
-    >
+    <div className="flex flex-row space-x-5 items-center justify-center">
       {currentPage > 1 && (
         <Link href={`/?page=${currentPage - 1}`}>
           <Button>
