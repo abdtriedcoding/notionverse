@@ -5,11 +5,11 @@ import Header from "./components/Header";
 import { PostItem } from "@/types";
 
 const HomePage = async () => {
-  const publishedItems: PostItem[] = await getAllPosts();
+  const publishedPosts: PostItem[] = await getAllPosts();
   return (
     <>
       <Header />
-      <Feed publishedItems={publishedItems} />
+      <Feed publishedPosts={publishedPosts} />
       <Footer />
     </>
   );

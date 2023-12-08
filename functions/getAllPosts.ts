@@ -6,20 +6,23 @@ export const getAllPosts = async (): Promise<PostItem[]> => {
   const databaseId = process.env.NOTION_DATABASE_ID!;
   const response = await notion.databases.query({
     database_id: databaseId,
+    filter: {
+      property: "status",
+      select: {
+        equals: "Published",
+      },
+    },
     sorts: [
       {
-        property: 'date',
-        direction: 'ascending',
+        property: "date",
+        direction: "ascending",
       },
     ],
   });
 
-  const publishedItems: PostItem[] = response.results.map((e) =>
+  const publishedPosts: PostItem[] = response.results.map((e) =>
     convertToPost(e)
   );
-  const filteredPosts: PostItem[] = publishedItems.filter(
-    (item) => item.status === "Published"
-  );
 
-  return filteredPosts;
+  return publishedPosts;
 };
