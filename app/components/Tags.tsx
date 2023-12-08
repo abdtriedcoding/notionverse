@@ -8,7 +8,7 @@ const Tags = ({ tagFrequencyMap }: { tagFrequencyMap: TagFrequencyMap }) => {
   const { slug } = params;
 
   return (
-    <div className="max-w-2xl space-x-3 overflow-x-auto whitespace-nowrap">
+    <div className="space-x-3 overflow-x-auto whitespace-nowrap">
       {Object.entries(tagFrequencyMap).map(([tag, value], index) => {
         const selected = tag === slug;
 

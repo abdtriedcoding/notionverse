@@ -3,9 +3,9 @@
 import { Input } from "@/components/ui/input";
 import { PostItem, TagFrequencyMap } from "@/types";
 import { useState } from "react";
-import BlogCard from "./BlogCard";
 import Tags from "./Tags";
 import { useParams } from "next/navigation";
+import Feed from "./Feed";
 
 const Search = ({
   publishedPosts,
@@ -27,7 +27,7 @@ const Search = ({
 
   return (
     <>
-      <div className="px-4 max-w-2xl mx-auto mb-5">
+      <div className="mb-5">
         <Input
           placeholder={slug ? `Search in #${slug}` : "Search Articles"}
           value={searchValue}
@@ -35,7 +35,7 @@ const Search = ({
         />
       </div>
 
-      <div className=" px-4 max-w-2xl mx-auto mb-5">
+      <div className="mb-5">
         <Tags tagFrequencyMap={tagFrequencyMap} />
       </div>
 
@@ -43,11 +43,7 @@ const Search = ({
         <p className="text-gray-500 text-center">No posts found.</p>
       )}
 
-      <div className="max-w-2xl m-auto px-4 min-h-full">
-        {filteredBlogPosts.map((post: PostItem) => (
-          <BlogCard key={post.id} post={post} />
-        ))}
-      </div>
+      <Feed postsToShow={filteredBlogPosts} />
     </>
   );
 };
