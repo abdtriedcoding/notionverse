@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import TopScrollButton from "../components/TopScrollButton";
 import md5 from "md5";
 import { email } from "@/constants";
+import SocialshareButtons from "../components/SocialshareButtons";
 
 export default async function Page({
   searchParams,
@@ -45,13 +46,10 @@ export default async function Page({
             </Avatar>
           </Link>
           <div>
-            <Link
-              href="/about"
-              className="text-blue-500 hover:underline taiwlnd"
-            >
+            <Link href="/about" className="text-blue-500 hover:underline">
               {data.entry[0].displayName}
             </Link>{" "}
-            / {FormatDate(postDetails.date)}
+            / <span className="text-sm">{FormatDate(postDetails.date)}</span>
             <p className="text-xs text-gray-500">Read: 4 minutes</p>
           </div>
           <div className="flex space-x-2">
@@ -63,6 +61,10 @@ export default async function Page({
           </div>
         </div>
       </div>
+      <SocialshareButtons
+        shareUrl={`http://localhost:3000/${postDetails.slug}?id=${postDetails.id}`}
+        title={postDetails.title}
+      />
       <NotionRenderer blockMap={blockMap} />
       <div>
         <Link href="/blogs">
