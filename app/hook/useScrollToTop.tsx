@@ -1,39 +1,29 @@
-import { useState, useEffect, useCallback } from "react";
+import { useEffect, useState } from "react";
 
-const useScrollToTop = (threshold = 100) => {
+const useScrollToTop = () => {
   const [showTopButton, setShowTopButton] = useState(false);
 
-  const handleScroll = useCallback(() => {
-    const scrolled = window.scrollY;
-    setShowTopButton(scrolled > threshold);
-  }, [threshold]);
-
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setShowTopButton(!entry.isIntersecting);
-      },
-      { threshold: [0, 1] }
-    );
-
-    observer.observe(document.querySelector(".observer-element")!);
+    const handleScroll = () => {
+      const scrolledToTop = window.scrollY === 0;
+      setShowTopButton(!scrolledToTop);
+    };
 
     window.addEventListener("scroll", handleScroll);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      observer.disconnect();
     };
-  }, [handleScroll]);
+  }, []);
 
-  const handleClickTop = useCallback(() => {
+  const scrollToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
-  }, []);
+  };
 
-  return { showTopButton, handleClickTop };
+  return { showTopButton, scrollToTop };
 };
 
 export default useScrollToTop;
