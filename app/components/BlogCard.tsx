@@ -20,7 +20,7 @@ const BlogCard = ({ post }: { post: PostItem }) => {
 
           <p className="mt-2 line-clamp-2">{summary}</p>
 
-          <div className="mt-4 space-x-1">
+          <div className="mt-4 flex flex-wrap gap-1">
             {tags.map((tag, index) => (
               <span
                 key={index}
