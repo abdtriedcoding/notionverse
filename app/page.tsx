@@ -16,7 +16,7 @@ const HomePage = async ({
   const endIndex = startIndex + postsPerPage;
   const postsToShow = publishedPosts.slice(startIndex, endIndex);
   const totalPosts = publishedPosts.length;
-
+  
   return (
     <>
       <Feed postsToShow={postsToShow} />
