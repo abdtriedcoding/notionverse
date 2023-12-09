@@ -15,7 +15,7 @@ export default async function Page({
   const blockMap = await response.json();
 
   return (
-    <div className="max-w-2xl m-auto">
+    <div className="max-w-2xl m-auto px-4">
       <NotionRenderer blockMap={blockMap} />
     </div>
   );

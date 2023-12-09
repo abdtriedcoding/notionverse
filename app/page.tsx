@@ -1,7 +1,5 @@
 import { getAllPosts } from "@/functions/getAllPosts";
 import Feed from "./components/Feed";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
 import { PostItem } from "@/types";
 import Pagination from "./components/Pagination";
 import { postsPerPage } from "@/constants";
@@ -21,13 +19,11 @@ const HomePage = async ({
 
   return (
     <>
-      <Header />
       <Feed postsToShow={postsToShow} />
       <Pagination
         currentPage={page}
         totalPages={Math.ceil(totalPosts / postsPerPage)}
       />
-      <Footer />
     </>
   );
 };
