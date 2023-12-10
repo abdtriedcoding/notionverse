@@ -6,7 +6,13 @@ import { useState } from "react";
 import BlogCard from "./BlogCard";
 import Tags from "./Tags";
 
-const Search = ({ publishedPosts,tagFrequencyMap }: { publishedPosts: PostItem[],tagFrequencyMap:TagFrequencyMap }) => {
+const Search = ({
+  publishedPosts,
+  tagFrequencyMap,
+}: {
+  publishedPosts: PostItem[];
+  tagFrequencyMap: TagFrequencyMap;
+}) => {
   const [searchValue, setSearchValue] = useState("");
 
   const filteredBlogPosts = publishedPosts.filter((post) => {
