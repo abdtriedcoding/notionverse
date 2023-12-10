@@ -1,13 +1,15 @@
-import { TagFrequencyMap } from "@/types";
-import { getAllPosts } from "./getAllPosts";
+import { PostItem, TagFrequencyMap } from "@/types";
 
-export const calculateTagFrequency = async (): Promise<TagFrequencyMap> => {
-  const posts = await getAllPosts();
+export const calculateTagFrequency = async ({
+  publishedPosts,
+}: {
+  publishedPosts: PostItem[];
+}) => {
   let allTags: string[] = [];
   const tagFrequencyMap: TagFrequencyMap = {};
 
   // Concatenate tags from posts into allTags array
-  posts.forEach((post) => {
+  publishedPosts.forEach((post) => {
     allTags = [...allTags, ...post.tags];
   });
 

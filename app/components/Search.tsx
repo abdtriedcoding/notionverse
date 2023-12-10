@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { PostItem } from "@/types";
 import { useState } from "react";
 import BlogCard from "./BlogCard";
+import Tags from "./Tags";
 
 const Search = ({ publishedPosts }: { publishedPosts: PostItem[] }) => {
   const [searchValue, setSearchValue] = useState("");
@@ -21,6 +22,10 @@ const Search = ({ publishedPosts }: { publishedPosts: PostItem[] }) => {
           value={searchValue}
           onChange={(e) => setSearchValue(e.target.value)}
         />
+      </div>
+
+      <div className=" px-4 max-w-2xl mx-auto mb-5">
+        <Tags publishedPosts={publishedPosts} />
       </div>
 
       {!filteredBlogPosts.length && (
