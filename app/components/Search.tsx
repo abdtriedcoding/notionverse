@@ -1,12 +1,12 @@
 "use client";
 
 import { Input } from "@/components/ui/input";
-import { PostItem } from "@/types";
+import { PostItem, TagFrequencyMap } from "@/types";
 import { useState } from "react";
 import BlogCard from "./BlogCard";
 import Tags from "./Tags";
 
-const Search = ({ publishedPosts }: { publishedPosts: PostItem[] }) => {
+const Search = ({ publishedPosts,tagFrequencyMap }: { publishedPosts: PostItem[],tagFrequencyMap:TagFrequencyMap }) => {
   const [searchValue, setSearchValue] = useState("");
 
   const filteredBlogPosts = publishedPosts.filter((post) => {
@@ -25,7 +25,7 @@ const Search = ({ publishedPosts }: { publishedPosts: PostItem[] }) => {
       </div>
 
       <div className=" px-4 max-w-2xl mx-auto mb-5">
-        <Tags publishedPosts={publishedPosts} />
+        <Tags tagFrequencyMap={tagFrequencyMap} />
       </div>
 
       {!filteredBlogPosts.length && (
