@@ -5,6 +5,7 @@ import { PostItem, TagFrequencyMap } from "@/types";
 import { useState } from "react";
 import BlogCard from "./BlogCard";
 import Tags from "./Tags";
+import { useParams } from "next/navigation";
 
 const Search = ({
   publishedPosts,
@@ -14,6 +15,9 @@ const Search = ({
   tagFrequencyMap: TagFrequencyMap;
 }) => {
   const [searchValue, setSearchValue] = useState("");
+
+  const params = useParams();
+  const { slug } = params;
 
   const filteredBlogPosts = publishedPosts.filter((post) => {
     const tagContent = post.tags ? post.tags.join(" ") : "";
@@ -25,6 +29,7 @@ const Search = ({
     <>
       <div className="px-4 max-w-2xl mx-auto mb-5">
         <Input
+          placeholder={slug ? `Search in #${slug}` : "Search Articles"}
           value={searchValue}
           onChange={(e) => setSearchValue(e.target.value)}
         />
