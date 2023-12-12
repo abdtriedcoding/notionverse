@@ -1,44 +1,35 @@
-import Link from "next/link";
-
 const AboutPage = () => {
   return (
-    <div className="max-w-2xl m-auto px-4 min-h-full">
-      {/* <!-- Header Section --> */}
-      <header className="pb-10">
-        <h1 className="text-3xl font-bold">Abdullah</h1>
-        <p className="text-lg">Web Developer | Open Source Enthusiast</p>
-      </header>
-
-      {/* <!-- About Me Section --> */}
-      <div className="mb-8">
-        <h2 className="text-2xl font-bold mb-4">About Me</h2>
-        <p className="text-gray-700">
-          Write a brief description about yourself here. Mention your
-          background, skills, and interests.
-        </p>
+    <div className="py-4 space-y-5">
+      <div className="flex flex-col items-center justify-center space-y-2">
+        <div style={{ width: "150px", height: "150px" }}>
+          <img
+            src="https://0.gravatar.com/avatar/6107d5f01cf8ee0e62a512ca53ed489bd464881fa03dc9244dda22e7da921111?size=256"
+            alt="Profile"
+            className="object-cover w-full h-full rounded-full"
+          />
+        </div>
+        <h1 className="text-xl font-semibold">Abdullah (Software Developer)</h1>
       </div>
-
-      {/* <!-- Repository Idea Section --> */}
-      <div className="mb-8">
-        <h2 className="text-2xl font-bold mb-4">Repository Idea</h2>
-        <ul className="list-disc pl-4">
-          <li>Point 1: Describe your first point about the repo idea.</li>
-          <li>Point 2: Describe your second point about the repo idea.</li>
-          <li>Point 3: Describe your third point about the repo idea.</li>
-          {/* <!-- Add more points as needed --> */}
-        </ul>
-      </div>
-
-      {/* <!-- GitHub Button --> */}
-      <div className="mb-8">
-        <Link
-          href="https://github.com/sidd-abdullah/notionverse"
-          target="_blank"
-          className="bg-gray-800 text-white py-2 px-4 rounded-md hover:bg-gray-700 transition duration-300"
-        >
-          Give Repo a ⭐
-        </Link>
-      </div>
+      <p>
+        👋 I'm a passionate and dedicated software developer, currently
+        navigating my way through the 6th semester of B.Tech. My journey in the
+        vast realm of software development began in my first semester, and I've
+        been on an exciting learning adventure ever since. 🚀 With a solid
+        foundation in Data Structures and Algorithms (DSA), I've honed my skills
+        to become a proficient problem solver. 🧠 My coding journey has been a
+        continuous exploration of new technologies and methodologies. I take
+        pride in crafting robust and efficient web applications, utilizing a
+        toolkit that includes technologies like React.js, Next.js, Firebase,
+        REST APIs, Notion Database, Sanity, MongoDB, Prisma, and many more. 💻
+        Each project is a canvas where I blend creativity with functionality,
+        whether it's designing intuitive user interfaces or architecting
+        scalable backend systems. As a self-driven developer, I embrace
+        challenges as opportunities for growth. 🌱 My goal is to contribute
+        innovative solutions to real-world problems and make a positive impact
+        through my work. Let's connect and dive into the exciting world of
+        software development together! 🌐✨
+      </p>
     </div>
   );
 };
