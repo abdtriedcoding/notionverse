@@ -9,6 +9,8 @@ import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import TopScrollButton from "../components/TopScrollButton";
+import md5 from "md5";
+import { email } from "@/constants";
 
 export default async function Page({
   searchParams,
@@ -25,20 +27,31 @@ export default async function Page({
   const pageProperties = await notion.pages.retrieve({ page_id: id });
   const postDetails = convertToPost(pageProperties);
 
+  // Gravator use for accessing profile Information
+  const emailHash = md5(email.trim().toLowerCase());
+  const profileUrl = `https://www.gravatar.com/${emailHash}.json`;
+  const responsee = await fetch(profileUrl);
+  const data = await responsee.json();
+
   return (
     <div className="space-y-5">
       <div>
         <h1 className="text-4xl font-bold">{postDetails.title}</h1>
         <div className="flex items-center mt-4 space-x-4">
-          <Avatar>
-            <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-            <AvatarFallback>CN</AvatarFallback>
-          </Avatar>
+          <Link href="/about">
+            <Avatar>
+              <AvatarImage src={data.entry[0].thumbnailUrl} alt="@shadcn" />
+              <AvatarFallback>AS</AvatarFallback>
+            </Avatar>
+          </Link>
           <div>
-            <p className="text-sm text-gray-600">
-              <span className="text-blue-500">Craig Hart</span> /{" "}
-              {FormatDate(postDetails.date)}
-            </p>
+            <Link
+              href="/about"
+              className="text-blue-500 hover:underline taiwlnd"
+            >
+              {data.entry[0].displayName}
+            </Link>{" "}
+            / {FormatDate(postDetails.date)}
             <p className="text-xs text-gray-500">Read: 4 minutes</p>
           </div>
           <div className="flex space-x-2">

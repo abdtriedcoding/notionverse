@@ -26,3 +26,5 @@ export const footerNavigation: FooterNavItem[] = [
 ];
 
 export const postsPerPage = 5;
+
+export const email = "siddabdullah46@gmail.com";
