@@ -21,6 +21,7 @@
     "react": "^18",
     "react-dom": "^18",
     "react-notion": "^0.10.0",
+    "react-share": "^5.0.3",
     "tailwind-merge": "^2.1.0",
     "tailwindcss-animate": "^1.0.7"
   },
