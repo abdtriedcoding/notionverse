@@ -6,7 +6,7 @@ const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages }) => {
   return (
     <div className="flex flex-row space-x-5 items-center justify-center">
       {currentPage > 1 && (
-        <Link href={`/?page=${currentPage - 1}`}>
+        <Link href={`/blogs?page=${currentPage - 1}`}>
           <Button>
             <span>&larr; Previous</span>
           </Button>
@@ -14,7 +14,7 @@ const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages }) => {
       )}
 
       {currentPage < totalPages && (
-        <Link href={`/?page=${currentPage + 1}`}>
+        <Link href={`/blogs?page=${currentPage + 1}`}>
           <Button>
             <span>Next &rarr;</span>
           </Button>
